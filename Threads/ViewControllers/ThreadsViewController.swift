@@ -8,6 +8,7 @@
 import UIKit
 import Alamofire
 
+
 class ThreadsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var direct: DirectOutput?;
@@ -16,11 +17,16 @@ class ThreadsViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     override func viewDidLoad() {
         super.viewDidLoad();
-        self.getThreads();
         
         self.title = "Threads";
         
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Settings", style: .plain, target: self, action: #selector(self.settingsButtonTapped));
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated);
+        
+        self.getThreads();
     }
     
     @objc func settingsButtonTapped() {
@@ -28,44 +34,19 @@ class ThreadsViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func getThreads() {
-        let userDefaults = UserDefaults.standard;
-        let cookie = userDefaults.string(forKey: "cookie");
-        let appId = userDefaults.string(forKey: "appId");
-        let igClaim = userDefaults.string(forKey: "igClaim");
-        
-        
-        let headers: HTTPHeaders = [
-            "Cookie": cookie!,
-            "X-IG-App-ID": appId!,
-            "X-IG-WWW-Claim": igClaim!
-        ];
-        
-        AF.request("https://i.instagram.com/api/v1/direct_v2/inbox",  headers: headers).responseJSON { response in
-            guard response.error == nil else {
-                print(response.error!);
-                return
-            }
-            guard let data = response.data else {
-                print("No Data");
-                return
-            }
-            
-            do {
-                let decoder = JSONDecoder()
-                self.direct = try decoder.decode(DirectOutput.self, from: data)
-                print(self.direct ?? "No Data")
-                
-                self.inboxTableView.reloadData();
-                
-            } catch {
-                print(error)
-            }
+        getInbox { data in
+            self.direct = data;
+            self.inboxTableView.reloadData()
+        } failure: {
+            print("handle failure")
         }
+
     }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = Bundle.main.loadNibNamed("ThreadEntryCell", owner: self, options: nil)?.first as! ThreadEntryCell;
+        cell.selectionStyle = .none;
         
         if let thread = self.direct?.inbox.threads[ indexPath.row ] {
             cell.threadTitleLabel.text = thread.title
@@ -87,6 +68,15 @@ class ThreadsViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("Selected Row: \(indexPath.row)");
+        
+        let storyboard = UIStoryboard.init(name: "Main", bundle: nil);
+        
+        let destinationViewController = storyboard.instantiateViewController(identifier: String(describing: SingleThreadViewController.self)) as! SingleThreadViewController;
+        
+        destinationViewController.threadTitle = self.direct?.inbox.threads[ indexPath.row ].title;
+        destinationViewController.threadId = self.direct?.inbox.threads[ indexPath.row ].id;
+        
+        self.navigationController?.pushViewController(destinationViewController, animated: true);
         
     }
     

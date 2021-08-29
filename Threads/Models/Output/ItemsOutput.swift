@@ -13,6 +13,7 @@ struct ItemsOutput : Decodable {
     let timestamp : Int;
     let itemType : String;
     let text : String?;
+    let reelShare : ReelShareOutput?;
     
     
     
@@ -22,5 +23,6 @@ struct ItemsOutput : Decodable {
         case itemType = "item_type"
         case timestamp = "timestamp"
         case text = "text"
+        case reelShare = "reel_share"
     }
 }

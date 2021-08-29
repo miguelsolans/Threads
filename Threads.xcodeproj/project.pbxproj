@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8B08E15726DB043200A7254C /* UserOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B08E15626DB043200A7254C /* UserOutput.swift */; };
+		8B08E15926DB05C600A7254C /* BubbleMessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B08E15826DB05C600A7254C /* BubbleMessageCell.xib */; };
+		8B08E15B26DB05D900A7254C /* BubbleMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B08E15A26DB05D900A7254C /* BubbleMessageCell.swift */; };
+		8B08E15D26DB117C00A7254C /* SingleThreadOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B08E15C26DB117C00A7254C /* SingleThreadOutput.swift */; };
+		8B08E15F26DB986B00A7254C /* ReelShareOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B08E15E26DB986B00A7254C /* ReelShareOutput.swift */; };
 		8B19643026DA3A2C00631E33 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B19642F26DA3A2C00631E33 /* AppDelegate.swift */; };
 		8B19643226DA3A2C00631E33 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B19643126DA3A2C00631E33 /* SceneDelegate.swift */; };
 		8B19643726DA3A2C00631E33 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B19643526DA3A2C00631E33 /* Main.storyboard */; };
@@ -24,6 +29,7 @@
 		8B19647526DA42C800631E33 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 8B19647426DA42C800631E33 /* Alamofire */; };
 		8B19647A26DA6AE500631E33 /* DirectOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B19647926DA6AE500631E33 /* DirectOutput.swift */; };
 		8B19647C26DAD70900631E33 /* UserSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B19647B26DAD70900631E33 /* UserSettingsViewController.swift */; };
+		8BD30B0026DAE06D0099486C /* SingleThreadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD30AFF26DAE06D0099486C /* SingleThreadViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +50,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8B08E15626DB043200A7254C /* UserOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserOutput.swift; sourceTree = "<group>"; };
+		8B08E15826DB05C600A7254C /* BubbleMessageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BubbleMessageCell.xib; sourceTree = "<group>"; };
+		8B08E15A26DB05D900A7254C /* BubbleMessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleMessageCell.swift; sourceTree = "<group>"; };
+		8B08E15C26DB117C00A7254C /* SingleThreadOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleThreadOutput.swift; sourceTree = "<group>"; };
+		8B08E15E26DB986B00A7254C /* ReelShareOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReelShareOutput.swift; sourceTree = "<group>"; };
 		8B19642C26DA3A2C00631E33 /* Threads.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Threads.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B19642F26DA3A2C00631E33 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8B19643126DA3A2C00631E33 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -66,6 +77,7 @@
 		8B19647026DA40C500631E33 /* Services.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services.swift; sourceTree = "<group>"; };
 		8B19647926DA6AE500631E33 /* DirectOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectOutput.swift; sourceTree = "<group>"; };
 		8B19647B26DAD70900631E33 /* UserSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingsViewController.swift; sourceTree = "<group>"; };
+		8BD30AFF26DAE06D0099486C /* SingleThreadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleThreadViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +174,8 @@
 			children = (
 				8B19646726DA3D3B00631E33 /* ThreadEntryCell.xib */,
 				8B19646C26DA3E1700631E33 /* ThreadEntryCell.swift */,
+				8B08E15826DB05C600A7254C /* BubbleMessageCell.xib */,
+				8B08E15A26DB05D900A7254C /* BubbleMessageCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -171,6 +185,7 @@
 			children = (
 				8B19646A26DA3DBD00631E33 /* ThreadsViewController.swift */,
 				8B19647B26DAD70900631E33 /* UserSettingsViewController.swift */,
+				8BD30AFF26DAE06D0099486C /* SingleThreadViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -182,6 +197,9 @@
 				8B19646326DA3AD600631E33 /* ThreadOutput.swift */,
 				8B19646526DA3C3700631E33 /* ItemsOutput.swift */,
 				8B19647926DA6AE500631E33 /* DirectOutput.swift */,
+				8B08E15626DB043200A7254C /* UserOutput.swift */,
+				8B08E15C26DB117C00A7254C /* SingleThreadOutput.swift */,
+				8B08E15E26DB986B00A7254C /* ReelShareOutput.swift */,
 			);
 			path = Output;
 			sourceTree = "<group>";
@@ -304,6 +322,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B19643C26DA3A2D00631E33 /* LaunchScreen.storyboard in Resources */,
+				8B08E15926DB05C600A7254C /* BubbleMessageCell.xib in Resources */,
 				8B19643926DA3A2D00631E33 /* Assets.xcassets in Resources */,
 				8B19646826DA3D3B00631E33 /* ThreadEntryCell.xib in Resources */,
 				8B19643726DA3A2C00631E33 /* Main.storyboard in Resources */,
@@ -331,15 +350,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8BD30B0026DAE06D0099486C /* SingleThreadViewController.swift in Sources */,
+				8B08E15F26DB986B00A7254C /* ReelShareOutput.swift in Sources */,
 				8B19646426DA3AD600631E33 /* ThreadOutput.swift in Sources */,
 				8B19646D26DA3E1700631E33 /* ThreadEntryCell.swift in Sources */,
 				8B19643026DA3A2C00631E33 /* AppDelegate.swift in Sources */,
+				8B08E15D26DB117C00A7254C /* SingleThreadOutput.swift in Sources */,
 				8B19646226DA3A7F00631E33 /* InboxOutput.swift in Sources */,
 				8B19646626DA3C3700631E33 /* ItemsOutput.swift in Sources */,
 				8B19646B26DA3DBD00631E33 /* ThreadsViewController.swift in Sources */,
+				8B08E15726DB043200A7254C /* UserOutput.swift in Sources */,
 				8B19647C26DAD70900631E33 /* UserSettingsViewController.swift in Sources */,
 				8B19647A26DA6AE500631E33 /* DirectOutput.swift in Sources */,
 				8B19643226DA3A2C00631E33 /* SceneDelegate.swift in Sources */,
+				8B08E15B26DB05D900A7254C /* BubbleMessageCell.swift in Sources */,
 				8B19647126DA40C500631E33 /* Services.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

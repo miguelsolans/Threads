@@ -14,10 +14,13 @@ struct ThreadOutput : Decodable {
     
     let items: [ItemsOutput];
     
+    let users: [UserOutput];
+    
     enum CodingKeys: String, CodingKey {
         case id = "thread_id"
         case secondId = "thread_v2_id"
         case title = "thread_title"
         case items = "items"
+        case users = "users"
     }
 }
