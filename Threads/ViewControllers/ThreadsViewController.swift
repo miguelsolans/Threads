@@ -12,15 +12,20 @@ import Alamofire
 class ThreadsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var direct: DirectOutput?;
+    let refreshControl = UIRefreshControl();
     
     @IBOutlet weak var inboxTableView: UITableView!
     
+    // MARK: - Lifecycles
     override func viewDidLoad() {
         super.viewDidLoad();
         
         self.title = "Threads";
         
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Settings", style: .plain, target: self, action: #selector(self.settingsButtonTapped));
+        
+        self.refreshControl.addTarget(self, action: #selector(self.getThreads), for: .valueChanged);
+        self.inboxTableView.addSubview(self.refreshControl);
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -29,28 +34,26 @@ class ThreadsViewController: UIViewController, UITableViewDelegate, UITableViewD
         self.getThreads();
     }
     
+    // MARK: - Actions
     @objc func settingsButtonTapped() {
         self.performSegue(withIdentifier: "userSettingSegue", sender: self);
     }
     
-    func getThreads() {
-        getInbox { data in
-            self.direct = data;
-            self.inboxTableView.reloadData()
-        } failure: {
-            print("handle failure")
-        }
-
-    }
-    
-    
+    // MARK: - UITableView Delegates
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = Bundle.main.loadNibNamed("ThreadEntryCell", owner: self, options: nil)?.first as! ThreadEntryCell;
         cell.selectionStyle = .none;
         
         if let thread = self.direct?.inbox.threads[ indexPath.row ] {
             cell.threadTitleLabel.text = thread.title
-            cell.lastMessageLabel.text = thread.items[ 0 ].text;
+            cell.lastMessageLabel.text = thread.items[ 0 ].text ?? "Media";
+            
+            let imageUrl = URL(string: thread.users[ 0 ].profilePicture)!;
+            
+            if let imageData = try? Data(contentsOf: imageUrl) {
+                cell.threadImage.image = UIImage(data: imageData)
+            }
+            
         }
         return cell;
     }
@@ -80,6 +83,16 @@ class ThreadsViewController: UIViewController, UITableViewDelegate, UITableViewD
         
     }
     
-    
+    // MARK: - Helper Methods
+    @objc func getThreads() {
+        getInbox { data in
+            self.direct = data;
+            self.inboxTableView.reloadData()
+            self.refreshControl.endRefreshing()
+        } failure: {
+            print("handle failure")
+        }
+
+    }
     
 }

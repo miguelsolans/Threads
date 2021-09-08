@@ -14,36 +14,61 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="125"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thread Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FcP-Ob-qjk">
-                    <rect key="frame" x="20" y="20" width="98" height="21"/>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Latest Message" textAlignment="natural" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sya-v3-D7T">
-                    <rect key="frame" x="20" y="61" width="121" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="InfoButton" translatesAutoresizingMaskIntoConstraints="NO" id="jnw-pW-J1A">
+                    <rect key="frame" x="10" y="22.5" width="80" height="80"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="80" id="M39-gF-O6u"/>
+                        <constraint firstAttribute="width" constant="80" id="PS4-gT-KFL"/>
+                    </constraints>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EZv-Vw-ph3">
+                    <rect key="frame" x="98" y="0.0" width="316" height="125"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Latest Message" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sya-v3-D7T">
+                            <rect key="frame" x="10" y="66" width="296" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thread Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FcP-Ob-qjk">
+                            <rect key="frame" x="10" y="35" width="296" height="21"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="FcP-Ob-qjk" firstAttribute="leading" secondItem="EZv-Vw-ph3" secondAttribute="leading" constant="10" id="HlF-mF-Rfa"/>
+                        <constraint firstItem="Sya-v3-D7T" firstAttribute="top" secondItem="FcP-Ob-qjk" secondAttribute="bottom" constant="10" id="Stz-iO-wqx"/>
+                        <constraint firstItem="Sya-v3-D7T" firstAttribute="leading" secondItem="EZv-Vw-ph3" secondAttribute="leading" constant="10" id="anx-3k-gn8"/>
+                        <constraint firstAttribute="trailing" secondItem="Sya-v3-D7T" secondAttribute="trailing" constant="10" id="eOG-Wt-8Y7"/>
+                        <constraint firstAttribute="trailing" secondItem="FcP-Ob-qjk" secondAttribute="trailing" constant="10" id="kXl-a4-Vto"/>
+                        <constraint firstItem="FcP-Ob-qjk" firstAttribute="top" secondItem="EZv-Vw-ph3" secondAttribute="top" constant="35" id="mNh-nr-jxZ"/>
+                    </constraints>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="Sya-v3-D7T" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="XDo-HL-ApC"/>
-                <constraint firstItem="FcP-Ob-qjk" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="f6J-Mm-51m"/>
-                <constraint firstItem="Sya-v3-D7T" firstAttribute="top" secondItem="FcP-Ob-qjk" secondAttribute="bottom" constant="20" id="o7N-Xj-Zg6"/>
-                <constraint firstItem="FcP-Ob-qjk" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="20" id="tu4-9J-jp7"/>
+                <constraint firstItem="jnw-pW-J1A" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="EV0-I9-Nxf"/>
+                <constraint firstItem="jnw-pW-J1A" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="apd-hp-a43"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="EZv-Vw-ph3" secondAttribute="trailing" id="ctL-hR-J0M"/>
+                <constraint firstItem="EZv-Vw-ph3" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="nDU-5e-xdD"/>
+                <constraint firstItem="EZv-Vw-ph3" firstAttribute="leading" secondItem="jnw-pW-J1A" secondAttribute="trailing" constant="8" id="utH-do-dec"/>
+                <constraint firstAttribute="bottom" secondItem="EZv-Vw-ph3" secondAttribute="bottom" id="w3z-iy-dam"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="lastMessageLabel" destination="Sya-v3-D7T" id="fkf-bO-0bO"/>
+                <outlet property="threadImage" destination="jnw-pW-J1A" id="aRR-OR-TOM"/>
                 <outlet property="threadTitleLabel" destination="FcP-Ob-qjk" id="YBP-eP-scL"/>
             </connections>
-            <point key="canvasLocation" x="-12.800000000000001" y="-213.64317841079463"/>
+            <point key="canvasLocation" x="16" y="-223.53823088455775"/>
         </view>
     </objects>
     <resources>
+        <image name="InfoButton" width="240" height="240"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
