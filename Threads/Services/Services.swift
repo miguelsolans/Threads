@@ -25,7 +25,7 @@ private func getHeaders() -> HTTPHeaders {
     return headers;
 }
 
-func getInbox( success: @escaping (DirectOutput) -> Void, failure: () -> Void ) {
+func getInbox( success: @escaping (DirectOutput) -> Void, failure: @escaping () -> Void ) {
     
     
     AF.request("https://i.instagram.com/api/v1/direct_v2/inbox",  headers: getHeaders()).responseJSON { response in
@@ -47,7 +47,7 @@ func getInbox( success: @escaping (DirectOutput) -> Void, failure: () -> Void ) 
         } catch {
             print(error)
             
-            
+            failure()
         }
     }
 }

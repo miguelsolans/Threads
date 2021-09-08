@@ -26,6 +26,12 @@ class ThreadsViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         self.refreshControl.addTarget(self, action: #selector(self.getThreads), for: .valueChanged);
         self.inboxTableView.addSubview(self.refreshControl);
+        UNUserNotificationCenter.current().requestAuthorization(options: .badge)
+             { (granted, error) in
+                  if error == nil {
+                      // success!
+                  }
+             }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -89,10 +95,28 @@ class ThreadsViewController: UIViewController, UITableViewDelegate, UITableViewD
             self.direct = data;
             self.inboxTableView.reloadData()
             self.refreshControl.endRefreshing()
+            
+            print("Number of Unseen messages: \(self.direct?.inbox.unseenCount ?? 0)")
+            
+            UIApplication.shared.applicationIconBadgeNumber = self.direct?.inbox.unseenCount ?? 0
         } failure: {
             print("handle failure")
+            
+            self.dealError();
         }
-
+    }
+    
+    func dealError() {
+        let alert = UIAlertController(title: "Error!", message: "Error Fetching for Messages", preferredStyle: .alert);
+        alert.addAction(UIAlertAction(title: "Close", style: .default, handler: { _ in
+            
+        }))
+        
+        self.present(alert, animated: true) {
+            self.inboxTableView.isHidden = true;
+        };
+        
+        
     }
     
 }
