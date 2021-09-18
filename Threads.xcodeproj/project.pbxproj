@@ -29,6 +29,11 @@
 		8B19647526DA42C800631E33 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 8B19647426DA42C800631E33 /* Alamofire */; };
 		8B19647A26DA6AE500631E33 /* DirectOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B19647926DA6AE500631E33 /* DirectOutput.swift */; };
 		8B19647C26DAD70900631E33 /* UserSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B19647B26DAD70900631E33 /* UserSettingsViewController.swift */; };
+		8B4DAC8926F64AC200DD0D8A /* RavenMediaOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4DAC8826F64AC200DD0D8A /* RavenMediaOutput.swift */; };
+		8B4DAC8B26F64B9700DD0D8A /* ImageVersioningOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4DAC8A26F64B9700DD0D8A /* ImageVersioningOutput.swift */; };
+		8B4DAC8F26F64EE600DD0D8A /* PublicEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4DAC8E26F64EE600DD0D8A /* PublicEnums.swift */; };
+		8B4DAC9126F6504A00DD0D8A /* MediaDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4DAC9026F6504A00DD0D8A /* MediaDisplayViewController.swift */; };
+		8B4DAC9426F6516A00DD0D8A /* ImageHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4DAC9326F6516A00DD0D8A /* ImageHandler.swift */; };
 		8B9F56A726E9604500FC8658 /* ErrorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B9F56A626E9604500FC8658 /* ErrorView.xib */; };
 		8BD30B0026DAE06D0099486C /* SingleThreadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD30AFF26DAE06D0099486C /* SingleThreadViewController.swift */; };
 /* End PBXBuildFile section */
@@ -78,6 +83,11 @@
 		8B19647026DA40C500631E33 /* Services.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services.swift; sourceTree = "<group>"; };
 		8B19647926DA6AE500631E33 /* DirectOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectOutput.swift; sourceTree = "<group>"; };
 		8B19647B26DAD70900631E33 /* UserSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingsViewController.swift; sourceTree = "<group>"; };
+		8B4DAC8826F64AC200DD0D8A /* RavenMediaOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RavenMediaOutput.swift; sourceTree = "<group>"; };
+		8B4DAC8A26F64B9700DD0D8A /* ImageVersioningOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageVersioningOutput.swift; sourceTree = "<group>"; };
+		8B4DAC8E26F64EE600DD0D8A /* PublicEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicEnums.swift; sourceTree = "<group>"; };
+		8B4DAC9026F6504A00DD0D8A /* MediaDisplayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaDisplayViewController.swift; sourceTree = "<group>"; };
+		8B4DAC9326F6516A00DD0D8A /* ImageHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHandler.swift; sourceTree = "<group>"; };
 		8B9F56A626E9604500FC8658 /* ErrorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ErrorView.xib; sourceTree = "<group>"; };
 		8BD30AFF26DAE06D0099486C /* SingleThreadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleThreadViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -131,6 +141,7 @@
 		8B19642E26DA3A2C00631E33 /* Threads */ = {
 			isa = PBXGroup;
 			children = (
+				8B4DAC9226F6514E00DD0D8A /* Utils */,
 				8B19647626DA496100631E33 /* Services */,
 				8B19646926DA3D9900631E33 /* ViewControllers */,
 				8B19646026DA3A4A00631E33 /* Views */,
@@ -141,6 +152,7 @@
 				8B19643826DA3A2D00631E33 /* Assets.xcassets */,
 				8B19643A26DA3A2D00631E33 /* LaunchScreen.storyboard */,
 				8B19643D26DA3A2D00631E33 /* Info.plist */,
+				8B4DAC8E26F64EE600DD0D8A /* PublicEnums.swift */,
 			);
 			path = Threads;
 			sourceTree = "<group>";
@@ -189,6 +201,7 @@
 				8B19646A26DA3DBD00631E33 /* ThreadsViewController.swift */,
 				8B19647B26DAD70900631E33 /* UserSettingsViewController.swift */,
 				8BD30AFF26DAE06D0099486C /* SingleThreadViewController.swift */,
+				8B4DAC9026F6504A00DD0D8A /* MediaDisplayViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -203,6 +216,8 @@
 				8B08E15626DB043200A7254C /* UserOutput.swift */,
 				8B08E15C26DB117C00A7254C /* SingleThreadOutput.swift */,
 				8B08E15E26DB986B00A7254C /* ReelShareOutput.swift */,
+				8B4DAC8826F64AC200DD0D8A /* RavenMediaOutput.swift */,
+				8B4DAC8A26F64B9700DD0D8A /* ImageVersioningOutput.swift */,
 			);
 			path = Output;
 			sourceTree = "<group>";
@@ -213,6 +228,14 @@
 				8B19647026DA40C500631E33 /* Services.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		8B4DAC9226F6514E00DD0D8A /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				8B4DAC9326F6516A00DD0D8A /* ImageHandler.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -360,14 +383,19 @@
 				8B19646D26DA3E1700631E33 /* ThreadEntryCell.swift in Sources */,
 				8B19643026DA3A2C00631E33 /* AppDelegate.swift in Sources */,
 				8B08E15D26DB117C00A7254C /* SingleThreadOutput.swift in Sources */,
+				8B4DAC9126F6504A00DD0D8A /* MediaDisplayViewController.swift in Sources */,
 				8B19646226DA3A7F00631E33 /* InboxOutput.swift in Sources */,
+				8B4DAC8F26F64EE600DD0D8A /* PublicEnums.swift in Sources */,
 				8B19646626DA3C3700631E33 /* ItemsOutput.swift in Sources */,
+				8B4DAC9426F6516A00DD0D8A /* ImageHandler.swift in Sources */,
 				8B19646B26DA3DBD00631E33 /* ThreadsViewController.swift in Sources */,
+				8B4DAC8B26F64B9700DD0D8A /* ImageVersioningOutput.swift in Sources */,
 				8B08E15726DB043200A7254C /* UserOutput.swift in Sources */,
 				8B19647C26DAD70900631E33 /* UserSettingsViewController.swift in Sources */,
 				8B19647A26DA6AE500631E33 /* DirectOutput.swift in Sources */,
 				8B19643226DA3A2C00631E33 /* SceneDelegate.swift in Sources */,
 				8B08E15B26DB05D900A7254C /* BubbleMessageCell.swift in Sources */,
+				8B4DAC8926F64AC200DD0D8A /* RavenMediaOutput.swift in Sources */,
 				8B19647126DA40C500631E33 /* Services.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

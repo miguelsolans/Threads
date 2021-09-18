@@ -74,11 +74,42 @@
                     <navigationItem key="navigationItem" id="R4J-m0-baV"/>
                     <connections>
                         <outlet property="threadTableView" destination="fo2-jh-PGP" id="n5e-Ze-Pk7"/>
+                        <segue destination="6Qz-gU-UEZ" kind="show" identifier="viewImageSegue" id="j65-lR-MIc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="et0-ZJ-XJb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1597.1014492753625" y="99.776785714285708"/>
+        </scene>
+        <!--Media Display View Controller-->
+        <scene sceneID="rlx-9Z-Ycg">
+            <objects>
+                <viewController storyboardIdentifier="MediaDisplayViewController" id="6Qz-gU-UEZ" customClass="MediaDisplayViewController" customModule="Threads" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Tpy-Ww-VZ2">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ss7-rg-H9K">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Eco-J9-Xva"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Eco-J9-Xva" firstAttribute="bottom" secondItem="ss7-rg-H9K" secondAttribute="bottom" id="CXP-cC-Mv0"/>
+                            <constraint firstItem="Eco-J9-Xva" firstAttribute="trailing" secondItem="ss7-rg-H9K" secondAttribute="trailing" id="dmK-Mm-PRv"/>
+                            <constraint firstItem="ss7-rg-H9K" firstAttribute="top" secondItem="Eco-J9-Xva" secondAttribute="top" id="o8K-dS-iYC"/>
+                            <constraint firstItem="ss7-rg-H9K" firstAttribute="leading" secondItem="Eco-J9-Xva" secondAttribute="leading" id="y7F-D7-bjf"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="tz3-fs-Zdz"/>
+                    <connections>
+                        <outlet property="mediaImageView" destination="ss7-rg-H9K" id="qYT-ox-6eo"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OsC-5N-NtC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2510" y="100"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="NoD-Ml-VPJ">

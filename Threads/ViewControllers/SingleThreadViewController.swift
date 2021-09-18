@@ -42,9 +42,45 @@ class SingleThreadViewController: UIViewController, UITableViewDelegate, UITable
         let cell = Bundle.main.loadNibNamed(String(describing: BubbleMessageCell.self), owner: self, options: nil)?.first as! BubbleMessageCell;
         
         if let safeItem = self.singleThread?.thread.items[ indexPath.row ] {
-            cell.messageTextLabel.text = safeItem.text;
+            
+            if(safeItem.itemType == "raven_media") {
+                cell.messageTextLabel.text = "Raven Media";
+            } else {
+                cell.messageTextLabel.text = safeItem.text;
+            }
         }
         return cell;
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let safeItem = self.singleThread?.thread.items[ indexPath.row ] {
+            
+            if(safeItem.itemType == "raven_media") {
+                
+                
+                if let safeMedia = safeItem.media?.images?.candidates {
+                    
+                    for imageOutput in safeMedia {
+                            
+                        if( (imageOutput.height == safeItem.media?.height) && (imageOutput.width == safeItem.media?.width) ) {
+                            
+                            let storyboard = UIStoryboard.init(name: "Main", bundle: nil);
+                            
+                            let destinationViewController = storyboard.instantiateViewController(identifier: String(describing: MediaDisplayViewController.self)) as! MediaDisplayViewController;
+                            
+                            destinationViewController.imageData = imageOutput;
+                            
+                            self.navigationController?.pushViewController(destinationViewController, animated: true);
+                            
+                            return;
+                        }
+                        
+                    }
+                }
+                
+            }
+            
+        }
     }
     
 }
