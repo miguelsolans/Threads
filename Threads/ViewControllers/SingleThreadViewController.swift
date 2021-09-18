@@ -10,12 +10,13 @@ import UIKit
 
 class SingleThreadViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    
     var threadId: String?
     var threadTitle: String?
     var singleThread: SingleThreadOutput?
     
     @IBOutlet weak var threadTableView: UITableView!
+    
+    // MARK: - Lifecycles
     override func viewDidLoad() {
         super.viewDidLoad();
         
@@ -23,17 +24,11 @@ class SingleThreadViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        getThread(threadId: self.threadId ?? "" ) { data in
-            print("Got Data: \(data)");
-            
-            self.singleThread = data;
-            
-            self.threadTableView.reloadData();
-        } failure: {
-            print("Failure")
-        }
-
+        
+        self.getThread();
     }
+    
+    // MARK: - TableView Delegate Methods
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.singleThread?.thread.items.count ?? 0
     }
@@ -80,6 +75,22 @@ class SingleThreadViewController: UIViewController, UITableViewDelegate, UITable
                 
             }
             
+        }
+    }
+    
+    
+    // MARK: - Networking Methods
+    func getThread() {
+        Threads.getThread(threadId: self.threadId ?? "" ) { data in
+            print("Got Data: \(data)");
+            
+            self.singleThread = data;
+            
+            self.singleThread?.thread.items.reverse();
+            
+            self.threadTableView.reloadData();
+        } failure: {
+            print("Failure")
         }
     }
     

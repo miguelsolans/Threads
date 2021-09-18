@@ -8,7 +8,7 @@
 import Foundation
 
 struct SingleThreadOutput: Decodable {
-    let thread: ThreadOutput;
+    var thread: ThreadOutput;
     
     enum CodingKeys: String, CodingKey {
         case thread = "thread"

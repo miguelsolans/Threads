@@ -12,7 +12,7 @@ struct ThreadOutput : Decodable {
     let secondId : String;
     let title: String;
     
-    let items: [ItemsOutput];
+    var items: [ItemsOutput];
     
     let users: [UserOutput];
     

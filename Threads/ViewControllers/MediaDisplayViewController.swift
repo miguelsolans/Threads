@@ -16,6 +16,8 @@ class MediaDisplayViewController: UIViewController {
     
     override func viewDidLoad() {
         self.title = "Raven Media";
+        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(self.saveImage))
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -27,9 +29,13 @@ class MediaDisplayViewController: UIViewController {
             if let imageData = try? Data(contentsOf: imageUrl) {
                 mediaImageView.image = UIImage(data: imageData)
             }
-            
         }
-        
+    }
+    
+    @objc func saveImage() {
+        if let safeImage = self.mediaImageView.image {
+            UIImageWriteToSavedPhotosAlbum(safeImage, nil, nil, nil);
+        }
         
     }
     
