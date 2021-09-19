@@ -15,11 +15,10 @@ private func getHeaders() -> HTTPHeaders {
     let appId = userDefaults.string(forKey: "appId");
     let igClaim = userDefaults.string(forKey: "igClaim");
     
-    
     let headers: HTTPHeaders = [
-        "Cookie": cookie!,
-        "X-IG-App-ID": appId!,
-        "X-IG-WWW-Claim": igClaim!
+        "Cookie": cookie ?? "",
+        "X-IG-App-ID": appId ?? "",
+        "X-IG-WWW-Claim": igClaim ?? ""
     ];
     
     return headers;
